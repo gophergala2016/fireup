@@ -9,7 +9,8 @@ import (
 func Serve(c *cli.Context) {
 	host := c.String("o")
 	port := c.Int("p")
-	fmt.Println("serve command:", host, port)
+	go StartPushListener(host, port + 1)
+	StartHttpListener(host, port)
 }
 
 func Push(c *cli.Context) {
