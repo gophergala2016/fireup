@@ -30,6 +30,9 @@ func PushFile(host string, port int, name string) error {
 	if err != nil {
 		return err
 	}
+
+	fmt.Fprintln(conn, name)
+	
 	_, err = io.Copy(conn, reader)
 
 	if err != nil {
