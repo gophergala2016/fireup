@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"github.com/codegangsta/cli"
+	"fmt"
 	"os"
 )
 
@@ -16,7 +16,18 @@ func Serve(c *cli.Context) {
 func Push(c *cli.Context) {
 	host := c.String("s")
 	port := c.Int("p")
-	fmt.Println("push command:", host, port)
+	args := c.Args()
+
+	var err error
+	if len(args) > 0 {
+		err = PushFile(host, port, args[0])
+	} else {
+		err = PushFile(host, port, "")
+	}
+
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "ERROR:", err)
+	}
 }
 
 func main() {
@@ -43,7 +54,7 @@ func main() {
 			Action: Push, 
 			Flags: []cli.Flag{
 				cli.StringFlag{ Name: "s", Value: "0.0.0.0", Usage: "remote server adderess."},
-				cli.IntFlag{ Name: "p", Value: 8080, Usage: "remote server port."},
+				cli.IntFlag{ Name: "p", Value: 8081, Usage: "remote server port."},
 			},
 		},
 	}
