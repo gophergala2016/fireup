@@ -9,6 +9,7 @@ import (
 func Serve(c *cli.Context) {
 	host := c.String("o")
 	port := c.Int("p")
+	go Dispatcher()
 	go StartPushListener(host, port+1)
 	StartHttpListener(host, port)
 }
