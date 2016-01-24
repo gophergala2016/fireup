@@ -6,7 +6,6 @@ import (
 	"sync"
 )
 
-
 var (
 	storage map[string]string
 	lock    sync.Mutex
@@ -33,4 +32,3 @@ func checksum(data string) string {
 	barr := []byte(data)
 	return fmt.Sprintf("%x", md5.Sum(barr))
 }
-

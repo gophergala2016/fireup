@@ -1,16 +1,16 @@
 package main
 
 import (
-	"net"
-	"io"
-	"os"
 	"fmt"
+	"io"
+	"net"
+	"os"
 )
 
 func acquireReader(name string) (io.Reader, error) {
 	if len(name) == 0 {
 		return os.Stdin, nil
-	}else {
+	} else {
 		file, err := os.Open(name)
 		return file, err
 	}
@@ -32,7 +32,7 @@ func PushFile(host string, port int, name string) error {
 	}
 
 	fmt.Fprintln(conn, name)
-	
+
 	_, err = io.Copy(conn, reader)
 
 	if err != nil {

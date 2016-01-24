@@ -1,13 +1,13 @@
 package main
 
 import (
-	"log"
-	"fmt"
-	"net"
 	"bufio"
-	"strings"
-	"path"
+	"fmt"
 	"io/ioutil"
+	"log"
+	"net"
+	"path"
+	"strings"
 )
 
 func getFileType(fname string) string {
@@ -28,7 +28,6 @@ func handlePush(conn net.Conn) {
 	log.Println("recvd:", fileType)
 
 	_, err = ioutil.ReadAll(conn)
-
 
 	conn.Close()
 

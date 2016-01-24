@@ -2,14 +2,14 @@ package main
 
 import (
 	"fmt"
-	"os"
 	"github.com/codegangsta/cli"
+	"os"
 )
 
 func Serve(c *cli.Context) {
 	host := c.String("o")
 	port := c.Int("p")
-	go StartPushListener(host, port + 1)
+	go StartPushListener(host, port+1)
 	StartHttpListener(host, port)
 }
 
@@ -29,4 +29,3 @@ func Push(c *cli.Context) {
 		fmt.Fprintln(os.Stderr, "ERROR:", err)
 	}
 }
-

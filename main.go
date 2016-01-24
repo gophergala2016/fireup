@@ -5,7 +5,6 @@ import (
 	"os"
 )
 
-
 func main() {
 
 	app := cli.NewApp()
@@ -14,23 +13,23 @@ func main() {
 
 	app.Commands = []cli.Command{
 		{
-			Name: "serve", 
-			Usage: "start in server mode", 
-			Aliases: []string{ "s" },
-			Action: Serve, 
+			Name:    "serve",
+			Usage:   "start in server mode",
+			Aliases: []string{"s"},
+			Action:  Serve,
 			Flags: []cli.Flag{
-				cli.StringFlag{ Name: "o", Value: "0.0.0.0", Usage: "listen on HOST."},
-				cli.IntFlag{ Name: "p", Value: 8080, Usage: "use PORT."},
+				cli.StringFlag{Name: "o", Value: "0.0.0.0", Usage: "listen on HOST."},
+				cli.IntFlag{Name: "p", Value: 8080, Usage: "use PORT."},
 			},
 		},
 		{
-			Name: "push", 
-			Usage: "push slide.", 
-			Aliases: []string{ "p" },
-			Action: Push, 
+			Name:    "push",
+			Usage:   "push slide.",
+			Aliases: []string{"p"},
+			Action:  Push,
 			Flags: []cli.Flag{
-				cli.StringFlag{ Name: "s", Value: "0.0.0.0", Usage: "remote server adderess."},
-				cli.IntFlag{ Name: "p", Value: 8081, Usage: "remote server port."},
+				cli.StringFlag{Name: "s", Value: "0.0.0.0", Usage: "remote server adderess."},
+				cli.IntFlag{Name: "p", Value: 8081, Usage: "remote server port."},
 			},
 		},
 	}
