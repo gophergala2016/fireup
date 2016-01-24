@@ -13,9 +13,9 @@ const RootTemplateStr = `
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="/favicon.ico">
 
-    <title>dynslide ...</title>
-    <link href="/assets/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <link href="/assets/dynslide.css" rel="stylesheet">
+    <title>FireUp</title>
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/fireup.css" rel="stylesheet">
   </head>
 
   <body>
@@ -25,16 +25,16 @@ const RootTemplateStr = `
         <div class="cover-container">
           <div class="masthead clearfix"> </div>
           <div class="inner cover">
-            <h1 class="cover-heading"><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span></h1>
+            <h1 class="cover-heading"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span></h1>
             <p class="lead">No content to display.</p>
-						<p class="lead">Push some content with <code>dynslide push</code> to display the content here.</p>
+						<p class="lead">Push some content with <code>fireup push</code> to display the content here.</p>
           </div>
         </div>
       </div>
     </div>
-    <script src="/assets/bootstrap/jquery.min.js"></script>
-    <script src="/assets/bootstrap/bootstrap.min.js"></script>
-    <script src="/assets/dynslide.js"></script>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/fireup.js"></script>
 </body>
 </html>
 `

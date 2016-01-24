@@ -7,7 +7,7 @@ import (
 type StringChan chan string
 
 var (
-	chData = make(chan string)
+	chData  = make(chan string)
 	clients = make([]StringChan, 0)
 )
 
@@ -19,4 +19,3 @@ func BroadcastHandler(ws *websocket.Conn) {
 		websocket.JSON.Send(ws, key)
 	}
 }
-

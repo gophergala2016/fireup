@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	"golang.org/x/net/websocket"
 	"log"
 	"net/http"
-	"golang.org/x/net/websocket"
 )
 
 func StartHttpListener(host string, port int) {
@@ -13,7 +13,11 @@ func StartHttpListener(host string, port int) {
 
 	http.Handle("/ws", websocket.Handler(BroadcastHandler))
 	http.HandleFunc("/slides/", SlideHandler)
-	http.HandleFunc("/assets/", AssetHandler)
+
+	http.HandleFunc("/assets/css/", CssHandler)
+	http.HandleFunc("/assets/js/", JsHandler)
+	http.HandleFunc("/assets/fonts/", FontHandler)
+
 	http.HandleFunc("/", RootHandler)
 	err := http.ListenAndServe(addr, nil)
 

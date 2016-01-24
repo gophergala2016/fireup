@@ -1,35 +1,25 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"io/ioutil"
 	"log"
 	"net"
-	"path"
-	"strings"
+	"github.com/russross/blackfriday"
 )
 
-func getFileType(fname string) string {
-	return path.Ext(fname)
-}
-
 func handlePush(conn net.Conn) {
-	r := bufio.NewReader(conn)
-
-	header, err := r.ReadString('\n')
+	data, err := ioutil.ReadAll(conn)
 
 	if err != nil {
-		log.Println("ERROR:", err)
+		log.Println("ERROR", err)
 		return
 	}
 
-	fileType := getFileType(strings.TrimSpace(header))
-	log.Println("recvd:", fileType)
+	output := blackfriday.MarkdownBasic(data)
+	key := Save(string(output))
 
-	_, err = ioutil.ReadAll(conn)
-
-	conn.Close()
+	chData <- key
 
 }
 

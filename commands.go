@@ -1,9 +1,7 @@
 package main
 
 import (
-	"fmt"
 	"github.com/codegangsta/cli"
-	"os"
 )
 
 func Serve(c *cli.Context) {
@@ -19,14 +17,10 @@ func Push(c *cli.Context) {
 	port := c.Int("p")
 	args := c.Args()
 
-	var err error
 	if len(args) > 0 {
-		err = PushFile(host, port, args[0])
+		PushFile(host, port, args[0])
 	} else {
-		err = PushFile(host, port, "")
+		PushFile(host, port, "")
 	}
 
-	if err != nil {
-		fmt.Fprintln(os.Stderr, "ERROR:", err)
-	}
 }
