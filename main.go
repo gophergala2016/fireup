@@ -10,12 +10,12 @@ func main() {
 
 	app := cli.NewApp()
 	app.Name = "fireup"
-	app.Usage = "fireup stuff"
+	app.Usage = "push markdown slides on the fly."
 
 	app.Commands = []cli.Command{
 		{
 			Name: "serve", 
-			Usage: "serve", 
+			Usage: "start in server mode", 
 			Aliases: []string{ "s" },
 			Action: Serve, 
 			Flags: []cli.Flag{
@@ -25,7 +25,7 @@ func main() {
 		},
 		{
 			Name: "push", 
-			Usage: "push", 
+			Usage: "push slide.", 
 			Aliases: []string{ "p" },
 			Action: Push, 
 			Flags: []cli.Flag{

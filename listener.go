@@ -27,9 +27,8 @@ func handlePush(conn net.Conn) {
 	fileType := getFileType(strings.TrimSpace(header))
 	log.Println("recvd:", fileType)
 
-	data, err := ioutil.ReadAll(conn)
+	_, err = ioutil.ReadAll(conn)
 
-	
 
 	conn.Close()
 
