@@ -3,6 +3,8 @@
 Fireup is a tool for dynamically broadcasting markdown slides to all browser clients connected to it. It has two modes of operation, the 
 server mode and the client mode. 
 
+Fireup can be thought of as a virtual whiteboard for a conference or any such collaborative endeavour. Start `fireup` in server mode
+and share it's web url to all participants or on a projector. Now all participants can push their content to the server. 
 
 # Installation
 To install `fireup` use the following command
@@ -21,7 +23,7 @@ command within the fireup directory in GOPATH to build the fireup binary. Now pl
 Run fireup in server mode with the command 
 
 ```
-/fireup s
+$ fireup s
 2016/01/25 04:56:08 starting http listener on http://0.0.0.0:8080
 2016/01/25 04:56:08 starting push listener on 0.0.0.0:8081
 
@@ -43,7 +45,7 @@ The screenshot below displays the slide pushed to the browser window.
 
 ![](https://raw.githubusercontent.com/gophergala2016/fireup/master/screenshots/gopher.png)
 
-some cool uses of fire up
+some cool uses of fireup
 
 ```
 $ head -10 main.go | fireup p
@@ -80,6 +82,11 @@ GLOBAL OPTIONS:
 ## Sample slides
 
 For some sample slides, look in the [samples](https://github.com/gophergala2016/fireup/tree/master/samples) folder.
+
+## Features to be added soon
+
+1. Support for file types other than markdown.
+2. Support for pushing audio and video files.
 
 
 
