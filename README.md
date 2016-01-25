@@ -1,10 +1,13 @@
 # fireup
 
-Fireup is a tool for dynamically broadcast markdown slides to all browser clients connected to it. It has two modes of operation, the 
-server mode and the client mode.
+Fireup is a tool for dynamically broadcasting markdown slides to all browser clients connected to it. It has two modes of operation, the 
+server mode and the client mode. 
 
 
 # Installation
+To install `fireup` use the following command
+
+(**NOTE:** you must have [Go](http://golang.org) installed before you can install fireup)
 
 ```
 $ go get github.com/gophergala2016/fireup
@@ -17,22 +20,30 @@ command within the fireup directory in GOPATH to build the fireup binary. Now pl
 
 Run fireup in server mode with the command 
 
-``
-./fireup s
+```
+/fireup s
 2016/01/25 04:56:08 starting http listener on http://0.0.0.0:8080
 2016/01/25 04:56:08 starting push listener on 0.0.0.0:8081
 
-``
-
-and share the url of the http listener to all participants.
-
-now push slides to the server usong the push command
-
-```
-$ fireup p ./slides/first.md
 ```
 
-some cool used of fire up
+and share the url of the http listener to all participants. At this point all browsers pointing to
+this url will see the following screen
+
+![](https://raw.githubusercontent.com/gophergala2016/fireup/master/screenshots/empty.png)
+
+
+Now push slides to the server using the push command as follows
+
+```
+$ fireup p ./samples/gopher.md
+```
+fireup then broadcasts the slide to all browser clients connected to fireup instance running in server mode.
+The screenshot below displays the slide pushed to the browser window.
+
+![](https://raw.githubusercontent.com/gophergala2016/fireup/master/screenshots/gopher.png)
+
+some cool uses of fire up
 
 ```
 $ head -10 main.go | fireup p
@@ -66,11 +77,13 @@ GLOBAL OPTIONS:
 
 ```
 
-# Starting the server
+## Sample slides
 
-# Pushing files to the server
+For some sample slides, look in the [samples](https://github.com/gophergala2016/fireup/tree/master/samples) folder.
+
+
 
 # License
 
-
+MIT License. [See here](https://github.com/gophergala2016/fireup/blob/master/LICENSE)
 
